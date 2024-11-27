@@ -23,13 +23,13 @@ list_ebird <- trends_runs <- ebirdst_runs |>
 #which one are in both (198/215)
 list_final <- subset(list_bbs1, list_bbs %in% list_ebird$common_name )
 
-# species not in the list_final because not found in list_ebirds
+#OPTION species not in the list_final because not found in list_ebirds
 not_present <- subset(list_bbs1, !(list_bbs %in% list_ebird$common_name))
 
 
                         
-#setting in correct format the list of birds
-list_f <- c(list_final[1:5,])
+#OPTION setting in correct format the list of birds. how many species u want to program to run.Change the n also after
+list_f <- c(list_final[1:20,])
 
 #n being total number of birds on bird_list, run that after General section
 bird_list <- list_f
@@ -39,7 +39,7 @@ bird_list <- list_f
 
 #General
 {
-n=5
+n=20
 results <- data.frame(matrix(ncol = 5, nrow = 4*n))
 colnames(results) <- c('BCRNAME', 'abd_ppy_median','abd_ppy_lower', 'abd_ppy_upper','bird_id')
 study_region <- read_sf("data/BCR_shapefiles/BCR_Terrestrial_master.shp")
@@ -91,7 +91,7 @@ results[(4*i+1):(4*i+4),] <- block[1:4,]
 
 #----------------E-N-D--------------------------------------
 
-
+#it took 5min for 20 species
 
 
 
